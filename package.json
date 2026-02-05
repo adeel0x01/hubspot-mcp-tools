@@ -1,0 +1,55 @@
+{
+  "name": "hubspot-mcp-tools",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol (MCP) server providing comprehensive HubSpot CRM integration with 58 tools covering Contacts, Companies, Deals, Tickets, Notes, Associations, Owners, Pipelines, and Properties APIs",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "hubspot-mcp-tools": "build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "inspector": "tsc && npx @modelcontextprotocol/inspector build/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "hubspot",
+    "crm",
+    "api",
+    "integration",
+    "contacts",
+    "companies",
+    "deals",
+    "tickets",
+    "notes",
+    "associations",
+    "claude",
+    "ai",
+    "assistant"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adeel0x01/hubspot-mcp-tools.git"
+  },
+  "author": "adeel0x01",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@hubspot/api-client": "^11.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
