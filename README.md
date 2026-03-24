@@ -2,7 +2,7 @@
 
 A Model Context Protocol (MCP) server that provides seamless integration with HubSpot's CRM APIs. This server enables Claude Desktop and other MCP clients to manage HubSpot resources and execute CRM operations directly through natural language.
 
-**58 comprehensive tools** covering the complete HubSpot CRM workflow including Contacts, Companies, Deals, Tickets, Notes, Associations, Owners, Pipelines, and Properties management.
+**87+ comprehensive tools** covering the complete HubSpot CRM workflow including Contacts, Companies, Deals, Tickets, Notes, Engagements (Calls, Emails, Meetings, Tasks), Workflows, Associations, Owners, Pipelines, and Properties management.
 
 ## Usage
 
@@ -70,7 +70,7 @@ Replace `your_access_token_here` with your HubSpot private app access token.
 - **hubspot_batch_create_tickets** - Create multiple tickets at once (max 100)
 - **hubspot_batch_update_tickets** - Update multiple tickets at once (max 100)
 
-### Notes API (8 tools)
+### Notes API (7 tools)
 
 - **hubspot_create_note** - Create a note and optionally associate with a HubSpot object
 - **hubspot_get_note** - Get a specific note by its ID
@@ -79,6 +79,50 @@ Replace `your_access_token_here` with your HubSpot private app access token.
 - **hubspot_update_note** - Update note content or properties
 - **hubspot_delete_note** - Archive (soft delete) a note
 - **hubspot_search_notes** - Search notes by content or properties
+
+### Calls API (6 tools)
+
+- **hubspot_create_call** - Log a call engagement with direction, status, duration, and optional CRM association
+- **hubspot_get_call** - Get a specific call by its ID
+- **hubspot_list_calls** - List all calls with pagination
+- **hubspot_update_call** - Update call properties
+- **hubspot_delete_call** - Archive (soft delete) a call
+- **hubspot_search_calls** - Search calls by properties or full-text query
+
+### Emails API (6 tools)
+
+- **hubspot_create_email** - Log an email engagement (sent, received, forwarded) with optional CRM association
+- **hubspot_get_email_engagement** - Get a specific email engagement by its ID
+- **hubspot_list_email_engagements** - List all email engagements with pagination
+- **hubspot_update_email_engagement** - Update email engagement properties
+- **hubspot_delete_email_engagement** - Archive (soft delete) an email engagement
+- **hubspot_search_email_engagements** - Search email engagements
+
+### Meetings API (6 tools)
+
+- **hubspot_create_meeting** - Log a meeting with title, agenda, start/end times, outcome, and optional CRM association
+- **hubspot_get_meeting** - Get a specific meeting by its ID
+- **hubspot_list_meetings** - List all meetings with pagination
+- **hubspot_update_meeting** - Update meeting properties
+- **hubspot_delete_meeting** - Archive (soft delete) a meeting
+- **hubspot_search_meetings** - Search meetings by properties or full-text query
+
+### Tasks API (6 tools)
+
+- **hubspot_create_task** - Create a task with subject, priority, type, due date, and optional CRM association
+- **hubspot_get_task** - Get a specific task by its ID
+- **hubspot_list_tasks** - List all tasks with pagination
+- **hubspot_update_task** - Update task properties or mark as completed
+- **hubspot_delete_task** - Archive (soft delete) a task
+- **hubspot_search_tasks** - Search tasks by status, priority, or other properties
+
+### Workflows API (5 tools)
+
+- **hubspot_list_workflows** - List all automation workflows in HubSpot
+- **hubspot_get_workflow** - Get details of a specific workflow by ID
+- **hubspot_enroll_contact_in_workflow** - Enroll a contact (by email) into a workflow
+- **hubspot_unenroll_contact_from_workflow** - Unenroll a contact from a workflow
+- **hubspot_get_workflow_enrollments** - Get contacts currently enrolled in a workflow
 
 ### Associations API (5 tools)
 
@@ -171,6 +215,12 @@ To use this server, you need a HubSpot private app access token with the followi
 - `crm.schemas.contacts.read`
 - `crm.schemas.companies.read`
 - `crm.schemas.deals.read`
+- `crm.objects.notes.read` and `crm.objects.notes.write`
+- `crm.objects.calls.read` and `crm.objects.calls.write`
+- `crm.objects.emails.read` and `crm.objects.emails.write`
+- `crm.objects.meetings.read` and `crm.objects.meetings.write`
+- `crm.objects.tasks.read` and `crm.objects.tasks.write`
+- `automation` (read and write, for workflow management)
 
 **Create a private app:**
 
